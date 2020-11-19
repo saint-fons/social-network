@@ -1,22 +1,32 @@
 import React from 'react';
+import './Profile.css'
 
 
-const Navbar = () => {
-    return <nav className='nav'>
+const Profile = () => {
+    return <div className='content'>
         <div>
-            <a>profile</a>
+            <img src='https://miro.medium.com/max/1000/1*lg2T1GPqqUtb5NR2Wiv-5w.jpeg'/>
         </div>
         <div>
-            <a>Messages</a>
+            avata + discriptin
         </div>
+
         <div>
-            <a>Music</a>
+            My post
+            <div>
+                New post
+            </div>
+            <div>
+                <div>
+                    Post 1
+                </div>
+                <div>
+                    Post 2
+                </div>
+            </div>
         </div>
-        <div>
-            <a>Settings</a>
-        </div>
-    </nav>
+    </div>
 }
 
 
-export default Navbar;
+export default Profile;
