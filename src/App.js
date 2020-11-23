@@ -21,7 +21,7 @@ const App = () => {
                     <Route path='/profile' component={Profile}/>
                     <Route path='/music' component={Songs}/>
                     <Route path='/settings' component={Settings}/>
-                    <Route path='/home' component={Home}/>
+                    <Route exact path='/' component={Home}/>
                 </div>
             </div>
         </BrowserRouter>
