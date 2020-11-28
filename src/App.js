@@ -8,16 +8,20 @@ import Songs from "./components/Music/Songs";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./components/Home/Home";
+import Dialog from "./components/Dialogs/Dialog/Dialog";
 
 
-const App = () => {
+const App = (props) => {
+
+
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/dialogs' component={Dialogs}/>
+                    <Route path='/dialogs' render= { () => <Dialogs dialog={props.dialog} message={props.message} /> } />
                     <Route path='/profile' component={Profile}/>
                     <Route path='/music' component={Songs}/>
                     <Route path='/settings' component={Settings}/>
