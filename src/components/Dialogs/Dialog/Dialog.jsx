@@ -7,6 +7,7 @@ const Dialog = (props) => {
         <div>
             <div>
                 <NavLink to={"/dialogs/" + props.id}>{props.name}</NavLink>
+                <div>{ props.age }</div>
             </div>
         </div>
     )

@@ -13,7 +13,7 @@ const Profile = () => {
             avata + discriptin
         </div>
 
-        <Posts />
+        <Posts message="hi" />
 
     </div>
 }
