@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom";
 
 
 const Dialog = (props) => {
+
     return (
         <div>
             <div>

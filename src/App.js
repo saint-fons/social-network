@@ -8,12 +8,9 @@ import Songs from "./components/Music/Songs";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./components/Home/Home";
-import Dialog from "./components/Dialogs/Dialog/Dialog";
 
 
 const App = (props) => {
-
-
 
     return (
         <BrowserRouter>
@@ -21,10 +18,10 @@ const App = (props) => {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/dialogs' render= { () => <Dialogs dialog={props.dialog} message={props.message} /> } />
-                    <Route path='/profile' component={Profile}/>
+                    <Route path='/dialogs' render= { () => <Dialogs state={props.state.DialogPage} /> } />
+                    <Route path='/profile' render= { () => <Profile state={props.state.ProfilePage} /> }/>
                     <Route path='/music' component={Songs}/>
-                    <Route path='/settings' component={Settings}/>
+                    <Route path='/settings' render= { () => <Settings setting={props.state.SettingsPage} /> }/>
                     <Route exact path='/' component={Home}/>
                 </div>
             </div>
