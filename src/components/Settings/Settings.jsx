@@ -7,6 +7,7 @@ import Setting from "./Settings/Setting"
 
 const Songs = (props) => {
 
+    let MessageData = props.addSetting.SettingsElement.map( s  => <Setting message={s.message} />)
 
     let newPostElement = React.createRef();
 

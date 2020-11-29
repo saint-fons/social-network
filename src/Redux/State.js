@@ -19,7 +19,8 @@ let state = {
 
     ProfilePage: {
         ProfileElement: [
-            {names: "hello_profile111"}
+            {names: "Abdul"},
+            {names: "Natasha"}
         ]
     },
     SettingsPage: {
@@ -31,13 +32,13 @@ let state = {
 
 }
 
+export let addPost = (postMessage) => {
 
-export let addSetting = (postSetting) => {
-    let newSetting = {
-        message: postSetting
+    let newPost = {
+        names: postMessage
     }
-    state.SettingsPage.SettingsElement.push(newSetting)
-    rerenderEntireTree()
+    state.ProfilePage.ProfileElement.push(newPost)
+    rerenderEntireTree(state)
 }
 
 export default state

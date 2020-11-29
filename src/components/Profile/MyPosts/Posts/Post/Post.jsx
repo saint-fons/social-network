@@ -1,24 +1,17 @@
 import React from 'react'
-
-
+import style from "../../../Profile.module.css";
 
 const Post = (props) => {
 
-    let addPost = () => {
-        alert("HEY!")
-    }
-
     return (
         <div>
-            <h3>My posts</h3>
-            <div>
-                <textarea></textarea>
+
+            <div >
+                <img className={style.s} src='https://miro.medium.com/max/1000/1*lg2T1GPqqUtb5NR2Wiv-5w.jpeg' alt="girl" />
             </div>
+
             <div>
-                <button onClick={ addPost }>Add post</button>
-            </div>
-            <div>
-                Post 1: { props.post.names }
+                Posts: { props.post }
             </div>
         </div>
     )
