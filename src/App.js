@@ -11,21 +11,20 @@ import Home from "./components/Home/Home";
 
 
 const App = (props) => {
+    debugger
 
     return (
-        <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Route path='/dialogs' render= { () => <Dialogs state={props.state.DialogPage} /> } />
+                    <Route path='/dialogs' render= { () => <Dialogs state={props.state.DialogPage}  /> } />
                     <Route path='/profile' render= { () => <Profile state={props.state.ProfilePage} /> }/>
                     <Route path='/music' component={Songs}/>
-                    <Route path='/settings' render= { () => <Settings setting={props.state.SettingsPage} /> }/>
+                    <Route path='/settings' render= { () => <Settings setting={props.state.SettingsPage} addSetting={props.addSetting} />  }/>
                     <Route exact path='/' component={Home}/>
                 </div>
             </div>
-        </BrowserRouter>
     );
 }
 

@@ -1,3 +1,4 @@
+import {rerenderEntireTree} from "../render";
 
 let state = {
 
@@ -18,16 +19,25 @@ let state = {
 
     ProfilePage: {
         ProfileElement: [
-            {names: "hello_profile"}
+            {names: "hello_profile111"}
         ]
     },
     SettingsPage: {
         SettingsElement: [
-            { message: "1111111"}
+            { message: "1111111"},
+            { message: "hello there" }
         ]
     }
 
 }
 
+
+export let addSetting = (postSetting) => {
+    let newSetting = {
+        message: postSetting
+    }
+    state.SettingsPage.SettingsElement.push(newSetting)
+    rerenderEntireTree()
+}
 
 export default state
