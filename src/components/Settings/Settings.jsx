@@ -1,32 +1,36 @@
 import React from 'react';
 import s from "./Settings.module.css";
 import Setting from "./Settings/Setting"
-
-
+import {addNewSettingText} from "../../Redux/State";
 
 
 const Songs = (props) => {
 
-    let MessageData = props.addSetting.SettingsElement.map( s  => <Setting message={s.message} />)
+    let SettingData = props.state.SettingsElement.map ( s => <Setting message={s.message} /> )
 
-    let newPostElement = React.createRef();
+    let newSettingElement = React.createRef();
 
-    let addPost = () => {
-        let text = newPostElement.current.value;
-        props.addPost(text)
-        newPostElement = ""
+    let addSetting = () => {
+        let text = newSettingElement.current.value;
+        props.addSetting(text)
     }
 
-
+    let onSettingChange = () => {
+        let text = newSettingElement.current.value
+        props.addNewSettingText(text)
+    }
 
     return <div className={s.settings}>
-        { MessageData }
         <div>
-            <textarea ref={newPostElement}></textarea>
+            <textarea onChange={ onSettingChange } ref={ newSettingElement }
+                      value={ props.addNewSetting } />
         </div>
         <div>
-            <button onClick={ addPost }>Add Message</button>
+            <button onClick={ addSetting }> Add setting </button>
         </div>
+
+        { SettingData }
+
     </div>
 }
 

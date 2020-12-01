@@ -1,5 +1,8 @@
 import {rerenderEntireTree} from "../render";
 
+
+
+
 let state = {
 
     DialogPage: {
@@ -23,16 +26,19 @@ let state = {
             {names: "Natasha"}
         ]
     },
+
+
     SettingsPage: {
         SettingsElement: [
-            { message: "1111111"},
-            { message: "hello there" }
-        ]
+            {message: "1111111"},
+            {message: "hello there"}
+        ],
+        addNewSetting: "Vyzyvai Natashu1111"
     }
 
 }
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
 
     let newPost = {
         names: postMessage
@@ -40,5 +46,31 @@ export let addPost = (postMessage) => {
     state.ProfilePage.ProfileElement.push(newPost)
     rerenderEntireTree(state)
 }
+
+export let deletePost = () => {
+    state.ProfilePage.ProfileElement.shift()
+    rerenderEntireTree(state)
+}
+
+
+
+export let addSetting = () => {
+
+    let newSetting = {
+        message: state.SettingsPage.addNewSetting
+    }
+    state.SettingsPage.SettingsElement.push(newSetting)
+    state.SettingsPage.addNewSetting = ''
+    rerenderEntireTree(state)
+}
+
+
+export let addNewSettingText = (newSetting) => {
+    state.SettingsPage.addNewSetting = newSetting
+    rerenderEntireTree(state)
+}
+
+
+window.state = state
 
 export default state

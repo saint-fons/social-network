@@ -8,7 +8,7 @@ import Songs from "./components/Music/Songs";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./components/Home/Home";
-import {addPost} from "./Redux/State";
+import {addNewSettingText, addPost, addSetting} from "./Redux/State";
 
 
 const App = (props) => {
@@ -21,7 +21,10 @@ const App = (props) => {
                     <Route path='/dialogs' render= { () => <Dialogs state={props.state.DialogPage}  /> } />
                     <Route path='/profile' render= { () => <Profile state={props.state.ProfilePage} addPost={props.addPost} /> }/>
                     <Route path='/music' component={Songs}/>
-                    <Route path='/settings' render= { () => <Settings setting={props.state.SettingsPage} addSetting={props.addSetting} />  }/>
+                    <Route path='/settings' render= { () => <Settings state={props.state.SettingsPage}
+                                                                      addNewSetting={props.state.SettingsPage.addNewSetting}
+                                                                      addNewSettingText={ props.addNewSettingText }
+                                                                      addSetting={ addSetting } />  }/>
                     <Route exact path='/' component={Home}/>
                 </div>
             </div>
