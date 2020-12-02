@@ -1,10 +1,23 @@
 import React from 'react';
 import './index.css';
-import state, {deletePost} from "./Redux/State";
-import { rerenderEntireTree } from "./render"
+import state from "./Redux/State";
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import {addNewSettingText, addPost, addSetting} from "./Redux/State"
+import {BrowserRouter} from "react-router-dom";
 
 
-//deletePost()
+
+export let rerenderEntireTree =(state) => {
+    ReactDOM.render(
+        <BrowserRouter>
+            <App state={ state } addPost={ addPost } addSetting={ addSetting }
+                 addNewSettingText={ addNewSettingText } />
+        </BrowserRouter>
+        ,document.getElementById('root')
+    );
+}
 
 rerenderEntireTree(state);
 
