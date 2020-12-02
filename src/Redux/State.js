@@ -56,7 +56,7 @@ export let deletePost = () => {
 
 
 
-export let addSetting = () => {
+export const addSetting = () => {
 
     let newSetting = {
         message: state.SettingsPage.addNewSetting
@@ -67,7 +67,7 @@ export let addSetting = () => {
 }
 
 
-export let addNewSettingText = (newSetting) => {
+export const addNewSettingText = (newSetting) => {
     state.SettingsPage.addNewSetting = newSetting
     rerenderEntireTree(state)
 }
@@ -76,3 +76,8 @@ export let addNewSettingText = (newSetting) => {
 window.state = state
 
 export default state
+
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
+}
