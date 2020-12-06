@@ -11,13 +11,14 @@ const Posts = (props) => {
     let newProfileElement = React.createRef();
 
     let addProfile = () => {
-        let text = newProfileElement.current.value;
-        props.addProfile(text)
+        //props.addProfile(text)
+        props.dispatch( { type: 'ADD-PROFILE'})
     }
 
     let onProfileChange = () => {
         let text = newProfileElement.current.value
-        props.addNewProfileText(text)
+        //props.addNewProfileText(text)
+        props.dispatch( { type: 'UPDATE-NEW-PROFILE', newProfile: text })
     }
 
     return( <div>

@@ -22,15 +22,14 @@ const App = (props) => {
                     <Route path='/profile' render= { () =>
                         <Profile state={props.state.ProfilePage}
                                  AddNewProfile={props.state.ProfilePage.AddNewProfile}
-                                 addProfile={props.addProfile}
-                                 addNewProfileText={props.addNewProfileText}
+                                 dispatch={ props.dispatch }
                         /> }/>
                     <Route path='/music' component={Songs}/>
                     <Route path='/settings' render= { () =>
                         <Settings state={props.state.SettingsPage}
                                   addNewSetting={props.state.SettingsPage.addNewSetting}
-                                  addNewSettingText={ props.addNewSettingText }
-                                  addSetting={ props.addSetting } />  }/>
+                                  dispatch={ props.dispatch }
+                        />  }/>
                     <Route exact path='/' component={Home}/>
                 </div>
             </div>

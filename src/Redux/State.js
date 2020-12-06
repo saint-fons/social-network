@@ -29,49 +29,40 @@ let store = {
             AddNewProfile: "lyaaaaa1"
         }
     },
-    getState() {
-        return this._state
-    },
     _callSubscriber() {
         console.log("State was changed")
     },
-    addProfile() {
-        let newProfile = {
-            names: this._state.ProfilePage.AddNewProfile
-        }
-        this._state.ProfilePage.ProfileElement.push(newProfile)
-        this._state.ProfilePage.AddNewProfile = ''
-        this._callSubscriber(this._state)
-    },
-    addSetting() {
-        let newSetting = {
-            message: this._state.SettingsPage.addNewSetting
-        }
-        this._state.SettingsPage.SettingsElement.push(newSetting)
-        this._state.SettingsPage.addNewSetting = ''
-        this._callSubscriber(this._state)
-    },
-    addNewSettingText(newSetting) {
 
-        this._state.SettingsPage.addNewSetting = newSetting
-        this._callSubscriber(this._state)
+    getState() {
+        return this._state
     },
-    addNewProfileText(newProfile) {
-
-        this._state.ProfilePage.AddNewProfile = newProfile
-        this._callSubscriber(this._state)
-    },
-    addPost(){
-
-        let newPost = {
-            names: postMessage
-        }
-        this._state.ProfilePage.ProfileElement.push(newPost)
-        this._callSubscriber(this._state)
-    },
-    subscribe(observer){
+    subscribe(observer) {
         this._callSubscriber = observer
     },
+
+    dispatch(action) {
+        if (action.type === "ADD-PROFILE") {
+            let newProfile = {
+                names: this._state.ProfilePage.AddNewProfile
+            }
+            this._state.ProfilePage.ProfileElement.push(newProfile)
+            this._state.ProfilePage.AddNewProfile = ''
+            this._callSubscriber(this._state)
+        } else if (action.type === "UPDATE-NEW-PROFILE") {
+            this._state.ProfilePage.AddNewProfile = action.newProfile
+            this._callSubscriber(this._state)
+        } else if (action.type === "ADD-SETTING") {
+            let newSetting = {
+                message: this._state.SettingsPage.addNewSetting
+            }
+            this._state.SettingsPage.SettingsElement.push(newSetting)
+            this._state.SettingsPage.addNewSetting = ''
+            this._callSubscriber(this._state)
+        } else if (action.type === "UPDATE-NEW-SETTING") {
+            this._state.SettingsPage.addNewSetting = action.newSetting
+            this._callSubscriber(this._state)
+        }
+    }
 
 }
 

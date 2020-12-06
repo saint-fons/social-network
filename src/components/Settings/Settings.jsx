@@ -1,7 +1,6 @@
 import React from 'react';
 import s from "./Settings.module.css";
 import Setting from "./Settings/Setting"
-import {addNewSettingText} from "../../Redux/State";
 
 
 const Songs = (props) => {
@@ -12,13 +11,12 @@ const Songs = (props) => {
     let newSettingElement = React.createRef();
 
     let addSetting = () => {
-        let text = newSettingElement.current.value;
-        props.addSetting(text)
+        props.dispatch( { type: 'ADD-SETTING'})
     }
 
     let onSettingChange = () => {
         let text = newSettingElement.current.value
-        props.addNewSettingText(text)
+        props.dispatch( { type: 'UPDATE-NEW-SETTING', newSetting: text })
     }
 
     return <div className={s.settings}>
