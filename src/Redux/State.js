@@ -76,15 +76,10 @@ export const addSettingActionCreator = () => ({type: ADD_SETTING})
 export const updateSettingActionCreator = (text) =>
 ({ type: UPDATE_NEW_SETTING, newSetting: text})
 
-
-
-
 export const addProfileActionCreator = () => ({type: ADD_PROFILE})
 
 export const updateProfileActionCreator = (text) =>
-({ type: UPDATE_NEW_PROFILE, newSetting: text })
-
-
+({ type: UPDATE_NEW_PROFILE, newProfile: text })
 
 window.store = store
 
