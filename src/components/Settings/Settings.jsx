@@ -6,7 +6,8 @@ import {addNewSettingText} from "../../Redux/State";
 
 const Songs = (props) => {
 
-    let SettingData = props.state.SettingsElement.map ( s => <Setting message={s.message} /> )
+    let SettingData = props.state.SettingsElement.map ( s =>
+        <Setting message={s.message} /> )
 
     let newSettingElement = React.createRef();
 
@@ -22,8 +23,11 @@ const Songs = (props) => {
 
     return <div className={s.settings}>
         <div>
-            <textarea onChange={ onSettingChange } ref={ newSettingElement }
-                      value={ props.addNewSetting } />
+            <textarea onChange={ onSettingChange }
+                      ref={ newSettingElement }
+                      value={ props.addNewSetting }
+
+            />
         </div>
         <div>
             <button onClick={ addSetting }> Add setting </button>

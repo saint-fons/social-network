@@ -3,14 +3,21 @@ import Post from "./Post/Post";
 
 const Posts = (props) => {
 
-    let PostsData = props.state.ProfileElement.map ( p => <Post post={p.names} />)
 
-    let newPostElement = React.createRef();
+    let PostsData = props.state.ProfileElement.map( p =>
+        <Post post={p.names} />
+        )
 
-    let addPost = () => {
-        let text = newPostElement.current.value;
-        props.addPost(text)
-        newPostElement=''
+    let newProfileElement = React.createRef();
+
+    let addProfile = () => {
+        let text = newProfileElement.current.value;
+        props.addProfile(text)
+    }
+
+    let onProfileChange = () => {
+        let text = newProfileElement.current.value
+        props.addNewProfileText(text)
     }
 
     return( <div>
@@ -21,10 +28,13 @@ const Posts = (props) => {
         <h3>My posts</h3>
         <div>
             <div>
-                <textarea ref={ newPostElement }></textarea>
+                <textarea onChange={ onProfileChange }
+                          ref={ newProfileElement }
+                          value={ props.AddNewProfile }
+                />
             </div>
             <div>
-                <button onClick={ addPost }>Add post</button>
+                <button onClick={ addProfile }>Add post</button>
             </div>
         </div>
 

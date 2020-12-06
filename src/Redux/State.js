@@ -4,7 +4,6 @@ import {rerenderEntireTree} from "../render";
 
 
 let state = {
-
     DialogPage: {
         DialogElement: [
             {name: "Alexandra", id: 1, age: 19},
@@ -19,24 +18,55 @@ let state = {
             {message: "message 7", number: "number"}
         ]
     },
-
-    ProfilePage: {
-        ProfileElement: [
-            {names: "Abdul"},
-            {names: "Natasha"}
-        ]
-    },
-
-
     SettingsPage: {
         SettingsElement: [
             {message: "1111111"},
             {message: "hello there"}
         ],
         addNewSetting: "Vyzyvai Natashu1111"
+    },
+    ProfilePage: {
+        ProfileElement: [
+            {names: "Abdul"},
+            {names: "Natasha"}
+        ],
+        AddNewProfile: "lyaaaaa1"
     }
-
 }
+
+export let addProfile = () => {
+    let newProfile = {
+        names: state.ProfilePage.AddNewProfile
+    }
+    state.ProfilePage.ProfileElement.push(newProfile)
+    state.ProfilePage.AddNewProfile = ''
+    rerenderEntireTree(state)
+}
+
+export let addSetting = () => {
+    debugger
+
+    let newSetting = {
+        message: state.SettingsPage.addNewSetting
+    }
+    state.SettingsPage.SettingsElement.push(newSetting)
+    debugger
+    state.SettingsPage.addNewSetting = ''
+    rerenderEntireTree(state)
+}
+
+export let addNewSettingText = (newSetting) => {
+
+    state.SettingsPage.addNewSetting = newSetting
+    rerenderEntireTree(state)
+}
+
+export let addNewProfileText = (newProfile) => {
+
+    state.ProfilePage.AddNewProfile = newProfile
+    rerenderEntireTree(state)
+}
+
 
 export let addPost = () => {
 
@@ -49,24 +79,6 @@ export let addPost = () => {
 
 export let deletePost = () => {
     state.ProfilePage.ProfileElement.shift()
-    rerenderEntireTree(state)
-}
-
-
-
-export let addSetting = () => {
-
-    let newSetting = {
-        message: state.SettingsPage.addNewSetting
-    }
-    state.SettingsPage.SettingsElement.push(newSetting)
-    state.SettingsPage.addNewSetting = ''
-    rerenderEntireTree(state)
-}
-
-
-export let addNewSettingText = (newSetting) => {
-    state.SettingsPage.addNewSetting = newSetting
     rerenderEntireTree(state)
 }
 
