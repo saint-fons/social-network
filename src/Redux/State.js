@@ -1,7 +1,6 @@
-import {rerenderEntireTree} from "../render";
-
-
-
+let rerenderEntireTree = () => {
+    console.log("State was changed")
+}
 
 let state = {
     DialogPage: {
@@ -32,6 +31,7 @@ let state = {
         ],
         AddNewProfile: "lyaaaaa1"
     }
+
 }
 
 export let addProfile = () => {
@@ -44,13 +44,10 @@ export let addProfile = () => {
 }
 
 export let addSetting = () => {
-    debugger
-
     let newSetting = {
         message: state.SettingsPage.addNewSetting
     }
     state.SettingsPage.SettingsElement.push(newSetting)
-    debugger
     state.SettingsPage.addNewSetting = ''
     rerenderEntireTree(state)
 }
@@ -67,7 +64,6 @@ export let addNewProfileText = (newProfile) => {
     rerenderEntireTree(state)
 }
 
-
 export let addPost = () => {
 
     let newPost = {
@@ -77,11 +73,9 @@ export let addPost = () => {
     rerenderEntireTree(state)
 }
 
-export let deletePost = () => {
-    state.ProfilePage.ProfileElement.shift()
-    rerenderEntireTree(state)
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
 }
-
 
 window.state = state
 
