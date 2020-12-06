@@ -1,3 +1,8 @@
+const ADD_SETTING = 'ADD-SETTING';
+const UPDATE_NEW_SETTING = 'UPDATE-NEW-SETTING';
+const ADD_PROFILE = 'ADD-PROFILE';
+const UPDATE_NEW_PROFILE = 'UPDATE-NEW-PROFILE';
+
 let store = {
     _state: {
         DialogPage: {
@@ -65,6 +70,21 @@ let store = {
     }
 
 }
+
+export const addSettingActionCreator = () => ({type: ADD_SETTING})
+
+export const updateSettingActionCreator = (text) =>
+({ type: UPDATE_NEW_SETTING, newSetting: text})
+
+
+
+
+export const addProfileActionCreator = () => ({type: ADD_PROFILE})
+
+export const updateProfileActionCreator = (text) =>
+({ type: UPDATE_NEW_PROFILE, newSetting: text })
+
+
 
 window.store = store
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Post from "./Post/Post";
+import {addProfileActionCreator, updateProfileActionCreator} from "../../../../Redux/State";
 
 const Posts = (props) => {
 
@@ -12,13 +13,14 @@ const Posts = (props) => {
 
     let addProfile = () => {
         //props.addProfile(text)
-        props.dispatch( { type: 'ADD-PROFILE'})
+        props.dispatch(addProfileActionCreator())
     }
 
     let onProfileChange = () => {
         let text = newProfileElement.current.value
         //props.addNewProfileText(text)
-        props.dispatch( { type: 'UPDATE-NEW-PROFILE', newProfile: text })
+        let action = updateProfileActionCreator(text)
+        props.dispatch(action)
     }
 
     return( <div>

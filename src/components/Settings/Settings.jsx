@@ -1,9 +1,12 @@
 import React from 'react';
 import s from "./Settings.module.css";
 import Setting from "./Settings/Setting"
+import {addSettingActionCreator, updateSettingActionCreator} from "../../Redux/State";
 
 
 const Songs = (props) => {
+
+
 
     let SettingData = props.state.SettingsElement.map ( s =>
         <Setting message={s.message} /> )
@@ -11,12 +14,14 @@ const Songs = (props) => {
     let newSettingElement = React.createRef();
 
     let addSetting = () => {
-        props.dispatch( { type: 'ADD-SETTING'})
+        props.dispatch( addSettingActionCreator() )
     }
 
     let onSettingChange = () => {
         let text = newSettingElement.current.value
-        props.dispatch( { type: 'UPDATE-NEW-SETTING', newSetting: text })
+        //props.dispatch( { type: 'UPDATE-NEW-SETTING', newSetting: text })
+        let action = updateSettingActionCreator(text)
+        props.dispatch(action)
     }
 
     return <div className={s.settings}>
@@ -24,7 +29,6 @@ const Songs = (props) => {
             <textarea onChange={ onSettingChange }
                       ref={ newSettingElement }
                       value={ props.addNewSetting }
-
             />
         </div>
         <div>
