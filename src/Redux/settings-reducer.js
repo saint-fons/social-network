@@ -1,7 +1,16 @@
 const ADD_SETTING = 'ADD-SETTING';
 const UPDATE_NEW_SETTING = 'UPDATE-NEW-SETTING';
 
-const settingsReducer = (state, action) => {
+let initialState = {
+    SettingsElement: [
+        {message: "1111111"},
+        {message: "hello there"}
+    ],
+    addNewSetting: "Vyzyvai Natashu1111"
+}
+
+
+const settingsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_SETTING:
             let newSetting = {
