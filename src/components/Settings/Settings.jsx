@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./Settings.module.css";
 import Setting from "./Settings/Setting"
-import {addSettingActionCreator, updateSettingActionCreator} from "../../Redux/State";
+import {addSettingActionCreator, updateSettingActionCreator} from "../../Redux/settings-reducer";
 
 
 const Songs = (props) => {
