@@ -9,9 +9,7 @@ let initialState = {
     AddNewProfile: "lyaaaaa1"
 }
 
-
 const profileReducer = (state = initialState, action) => {
-    debugger
     switch (action.type) {
         case ADD_PROFILE:
             let newProfile = {

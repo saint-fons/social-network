@@ -3,24 +3,22 @@ import Post from "./Post/Post";
 import {addProfileActionCreator, updateProfileActionCreator} from "../../../../Redux/profile-reducer";
 
 const Posts = (props) => {
-
-
-    let PostsData = props.state.ProfileElement.map( p =>
+    let PostsData = props.ProfilePage.ProfileElement.map( p =>
         <Post post={p.names} />
         )
 
     let newProfileElement = React.createRef();
 
     let addProfile = () => {
-        //props.addProfile(text)
-        props.dispatch(addProfileActionCreator())
+        props.addProfile()
+        //props.dispatch(addProfileActionCreator())
     }
 
     let onProfileChange = () => {
         let text = newProfileElement.current.value
-        //props.addNewProfileText(text)
-        let action = updateProfileActionCreator(text)
-        props.dispatch(action)
+        props.onProfileChange(text)
+        /*let action = updateProfileActionCreator(text)
+        props.dispatch(action)*/
     }
 
     return( <div>

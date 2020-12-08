@@ -9,7 +9,6 @@ let initialState = {
     addNewSetting: "Vyzyvai Natashu1111"
 }
 
-
 const settingsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_SETTING:

@@ -1,27 +1,24 @@
 import React from 'react';
 import s from "./Settings.module.css";
 import Setting from "./Settings/Setting"
-import {addSettingActionCreator, updateSettingActionCreator} from "../../Redux/settings-reducer";
 
 
-const Songs = (props) => {
-
-
-
-    let SettingData = props.state.SettingsElement.map ( s =>
+const Settings = (props) => {
+    let SettingData = props.SettingsPage.SettingsElement.map ( s =>
         <Setting message={s.message} /> )
 
     let newSettingElement = React.createRef();
 
     let addSetting = () => {
-        props.dispatch( addSettingActionCreator() )
+        props.addSetting()   //обращение через пропсы
+        //props.dispatch( addSettingActionCreator() )
     }
 
     let onSettingChange = () => {
         let text = newSettingElement.current.value
-        //props.dispatch( { type: 'UPDATE-NEW-SETTING', newSetting: text })
-        let action = updateSettingActionCreator(text)
-        props.dispatch(action)
+        props.onSettingChange(text)
+        //let action = updateSettingActionCreator(text)
+        //props.dispatch(action)
     }
 
     return <div className={s.settings}>
@@ -41,4 +38,4 @@ const Songs = (props) => {
 }
 
 
-export default Songs;
+export default Settings;
