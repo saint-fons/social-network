@@ -11,17 +11,23 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_PROFILE:
+        case ADD_PROFILE: {
             let newProfile = {
                 names: state.AddNewProfile
             }
-            state.ProfileElement.push(newProfile)
-            state.AddNewProfile = ''
-            break;
-        case UPDATE_NEW_PROFILE:
-            state.AddNewProfile = action.newProfile
-            break;
-        default : return state
+            let stateCopy = {...state}
+            stateCopy.ProfileElement = [...state.ProfileElement]
+            stateCopy.ProfileElement.push(newProfile)
+            stateCopy.AddNewProfile = ''
+            return stateCopy
+        }
+        case UPDATE_NEW_PROFILE: {
+            let stateCopy = {...state}
+            stateCopy.AddNewProfile = action.newProfile
+            return stateCopy
+        }
+        default :
+            return state
     }
 
     return state
