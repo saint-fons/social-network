@@ -4,7 +4,7 @@ import PostsContainer from "./MyPosts/Posts/Posts-container";
 
 const Profile = (props) => {
     return <div>
-        <PostsContainer store={props.store} />
+        <PostsContainer/>
             {/*{state={props.state}
                AddNewProfile={props.AddNewProfile}
                dispatch={ props.dispatch } }

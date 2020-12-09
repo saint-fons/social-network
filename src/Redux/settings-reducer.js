@@ -6,7 +6,7 @@ let initialState = {
         {message: "1111111"},
         {message: "hello there"}
     ],
-    addNewSetting: "Vyzyvai Natashu1111"
+    addNewSetting: "Vyzyvai Natashu111133"
 }
 
 const settingsReducer = (state = initialState, action) => {

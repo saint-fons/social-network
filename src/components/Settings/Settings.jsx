@@ -4,6 +4,7 @@ import Setting from "./Settings/Setting"
 
 
 const Settings = (props) => {
+
     let SettingData = props.SettingsPage.SettingsElement.map ( s =>
         <Setting message={s.message} /> )
 

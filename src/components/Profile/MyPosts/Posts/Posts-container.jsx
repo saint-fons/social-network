@@ -1,10 +1,9 @@
 import React from 'react';
-import Post from "./Post/Post";
 import {addProfileActionCreator, updateProfileActionCreator} from "../../../../Redux/profile-reducer";
 import Posts from "./Posts";
-import StoreContext from "../../../../StoreContext";
+import connect from "react-redux/lib/connect/connect";
 
-const PostsContainer = (props) => {
+/*const PostsContainer = (props) => {
 
     return (
         <StoreContext.Consumer>
@@ -15,8 +14,8 @@ const PostsContainer = (props) => {
                     store.dispatch(addProfileActionCreator())
                 }
                 let onProfileChange = (text) => {
-                    /*let text = newProfileElement.current.value
-                    props.addNewProfileText(text)*/
+                    /!*let text = newProfileElement.current.value
+                    props.addNewProfileText(text)*!/
                     let action = updateProfileActionCreator(text)
                     store.dispatch(action)
                 }
@@ -29,6 +28,21 @@ const PostsContainer = (props) => {
         }
         </StoreContext.Consumer>
     )
+}*/
+
+let mapStateToProps = (state) => {
+    return{
+        AddNewProfile: state.ProfilePage.AddNewProfile,
+        ProfilePage: state.ProfilePage
+    }
 }
 
-export default PostsContainer;
+let mapDispatchToProps = (dispatch) => {
+    return{
+        onProfileChange: (text) => {dispatch(updateProfileActionCreator(text))},
+        addProfile: () => {dispatch(addProfileActionCreator())}
+    }
+}
+const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Posts)
+
+export default ProfileContainer;

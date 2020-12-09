@@ -5,10 +5,10 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Songs from "./components/Music/Songs";
-import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./components/Home/Home";
 import SettingsContainer from "./components/Settings/Settings-container";
+import ProfileContainer from "./components/Profile/MyPosts/Posts/Posts-container";
 
 
 const App = (props) => {
@@ -18,7 +18,7 @@ const App = (props) => {
                 <Navbar/>
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render= { () =>
-                        <Dialogs state={props.state.DialogPage}  /> } />
+                        <Dialogs  /> } />
                     <Route path='/profile' render= { () =>
                         <Profile /*store={props.store}
                             state={props.state.ProfilePage}
