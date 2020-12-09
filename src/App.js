@@ -20,16 +20,16 @@ const App = (props) => {
                     <Route path='/dialogs' render= { () =>
                         <Dialogs state={props.state.DialogPage}  /> } />
                     <Route path='/profile' render= { () =>
-                        <Profile store={props.store}
-                            /*state={props.state.ProfilePage}
+                        <Profile /*store={props.store}
+                            state={props.state.ProfilePage}
                             AddNewProfile={props.state.ProfilePage.AddNewProfile}
                             dispatch={ props.dispatch }*/
                         /> }/>
                     <Route path='/music' component={Songs}/>
                     <Route path='/settings' render= { () =>
                         <SettingsContainer
-                            store={props.store}
-                            /*SettingsPage={props.state.SettingsPage}
+                            /*store={props.store}
+                            SettingsPage={props.state.SettingsPage}
                             addNewSetting={props.state.SettingsPage.addNewSetting}
                             dispatch={ props.dispatch }*/
                         />  }/>
