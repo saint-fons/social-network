@@ -10,21 +10,24 @@ let initialState = {
 }
 
 const settingsReducer = (state = initialState, action) => {
+    let stateCopy
     switch (action.type) {
         case ADD_SETTING:
             let newSetting = {
                 message: state.addNewSetting
             }
-            state.SettingsElement.push(newSetting)
-            state.addNewSetting = ''
-            break;
-        case UPDATE_NEW_SETTING:
-            state.addNewSetting = action.newSetting
-            break;
+            stateCopy = {...state}
+            stateCopy.SettingsElement = [...state.SettingsElement]
+            stateCopy.SettingsElement.push(newSetting)
+            stateCopy.addNewSetting = ''
+            return stateCopy
+        case UPDATE_NEW_SETTING: {
+            stateCopy = {...state}
+            stateCopy.addNewSetting = action.newSetting
+            return stateCopy
+        }
         default : return state
     }
-
-    return state
 }
 
 export const addSettingActionCreator = () => ({type: ADD_SETTING})
