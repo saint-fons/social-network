@@ -1,12 +1,14 @@
 const ADD_PROFILE = 'ADD-PROFILE';
 const UPDATE_NEW_PROFILE = 'UPDATE-NEW-PROFILE';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
     ProfileElement: [
         {names: "Abdul"},
         {names: "Natasha"}
     ],
-    AddNewProfile: "lyaaaaa1"
+    AddNewProfile: "lyaaaaa1",
+    profile: null
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -27,12 +29,15 @@ const profileReducer = (state = initialState, action) => {
             stateCopy.AddNewProfile = action.newProfile
             return stateCopy
         }
+        case SET_USER_PROFILE: {
+            return {...state, profile: action.profile}
+        }
         default :return state
     }
 }
 
 export const addProfileActionCreator = () => ({type: ADD_PROFILE})
-export const updateProfileActionCreator = (text) =>
-    ({ type: UPDATE_NEW_PROFILE, newProfile: text })
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+export const updateProfileActionCreator = (text) => ({ type: UPDATE_NEW_PROFILE, newProfile: text })
 
 export default profileReducer

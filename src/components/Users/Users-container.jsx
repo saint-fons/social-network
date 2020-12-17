@@ -4,13 +4,11 @@ import {
     follow,
     setCurrentPage, setTotalUsersCount,
     setUsers,
-    setUsersCount,
     toggleIsFetching,
     unfollow
 } from '../../Redux/users-reducer';
 import * as axios from 'axios';
 import Users from './Users';
-import preloader from './../../assets/imgs/Eclipse.gif'
 import Preloader from "../common/Preloader/Preloader";
 
 
@@ -62,31 +60,6 @@ let mapStateToProps = (state) => {
         isFetching: state.UsersPage.isFetching
     }
 }
-
-/*let mapDispatchToProps = (dispatch) => {
-
-    return {
-        follow: (userId) => {
-            dispatch(follow(userId))
-        },
-        unfollow: (userId) => {
-            dispatch(unfollow(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsers(users))
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPage(pageNumber))
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setUsersCount(totalCount))
-        },
-        TOGGLE_IS_FETCHING: (isFetching) => {
-            dispatch(toggleIsFetching(isFetching))
-        }
-
-    }
-}*/
 
 export default connect(mapStateToProps, {
     follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching,

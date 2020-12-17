@@ -3,12 +3,12 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Dialogs from "./components/Dialogs/Dialogs";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
 import Songs from "./components/Music/Songs";
 import UsersContainer from "./components/Users/Users-container"
 import {Route} from "react-router-dom";
 import Home from "./components/Home/Home";
 import SettingsContainer from "./components/Settings/Settings-container";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 
 const App = (props) => {
@@ -20,10 +20,7 @@ const App = (props) => {
                 <Route path='/dialogs' render={() =>
                     <Dialogs/>}/>
                 <Route path='/profile' render={() =>
-                    <Profile /*store={props.store}
-                            state={props.state.ProfilePage}
-                            AddNewProfile={props.state.ProfilePage.AddNewProfile}
-                            dispatch={ props.dispatch }*/
+                    <ProfileContainer
                     />}/>
                 <Route path='/music' component={Songs}/>
                 <Route path='/settings' render={() =>

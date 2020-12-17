@@ -1,15 +1,14 @@
 import React from 'react'
-import PostsContainer from "./MyPosts/Posts/Posts-container";
+import ProfileInfo from "./MyPosts/Posts/ProfileInfo";
+import PostsContainer from "./MyPosts/Posts/PostsContainer";
+import Preloader from "../common/Preloader/Preloader";
 
 
 const Profile = (props) => {
-    return <div>
-        <PostsContainer/>
-            {/*{state={props.state}
-               AddNewProfile={props.AddNewProfile}
-               dispatch={ props.dispatch } }
-               />*/}
 
+    return <div>
+        <PostsContainer profile={props.profile}/>
+        <ProfileInfo profile={props.profile}/>
     </div>
 }
 
