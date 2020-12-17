@@ -16,10 +16,15 @@ const ProfileInfo = (props) => {
             </div>
             <div>
                 <img src={props.profile.photos.large} />
+                <img src={props.profile.photos.small} />
+                <div>{props.profile.contacts.facebook}</div>
+                <div>{props.profile.contacts.instagram}</div>
                 ava + description
             </div>
         </div>
     )
 }
+
+
 
 export default ProfileInfo;
