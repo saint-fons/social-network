@@ -6,7 +6,9 @@ import Preloader from "../common/Preloader/Preloader";
 
 const Profile = (props) => {
 
+
     return <div>
+
         <PostsContainer profile={props.profile}/>
         <ProfileInfo profile={props.profile}/>
     </div>
