@@ -9,6 +9,7 @@ import Home from "./components/Home/Home";
 import SettingsContainer from "./components/Settings/Settings-container";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/login";
 
 
 const App = (props) => {
@@ -27,6 +28,8 @@ const App = (props) => {
                     <SettingsContainer/>}/>
                 <Route path='/users' render={() =>
                     <UsersContainer/>}/>
+                <Route path='/login' render={() =>
+                    <Login/>}/>
                 <Route exact path='/' component={Home}/>
             </div>
         </div>
