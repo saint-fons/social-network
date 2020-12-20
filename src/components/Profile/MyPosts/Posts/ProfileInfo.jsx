@@ -2,11 +2,13 @@ import React from 'react';
 import user1 from './../../../../assets/imgs/user1.jpg'
 import style from './../../Profile.module.css'
 import Preloader from "../../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus"
+
 
 const ProfileInfo = (props) => {
 
-    if(props.profile == null) {
-        return Preloader
+    if(!props.profile) {
+        return <Preloader />
     }
 
     return (
@@ -20,7 +22,7 @@ const ProfileInfo = (props) => {
                 <div>{props.profile.contacts.facebook}</div>
                 <div>{props.profile.contacts.instagram}</div>
                 <div>{props.profile.fullName}</div>
-                ava + description
+                <ProfileStatus status={"Hello my friends"} />
             </div>
         </div>
     )
