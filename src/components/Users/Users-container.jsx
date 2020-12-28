@@ -1,13 +1,13 @@
 import React from 'react';
-import connect from 'react-redux/lib/connect/connect';
+import {connect} from "react-redux";
 import {
     follow, getUsers, setCurrentPage,
     toggleFollowingProgress, unfollow
 } from '../../Redux/users-reducer';
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
-import {WithAuthRedirect} from "../../hoc/WithAuthRedirect";
 import {compose} from "redux";
+import {WithAuthRedirect} from "../../hoc/WithAuthRedirect";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -17,7 +17,6 @@ class UsersContainer extends React.Component {
     onPageChanged = (pageNumber) => {
         this.props.getUsers(pageNumber, this.props.pageSize)
     }
-
 
     render() {
         return <>
