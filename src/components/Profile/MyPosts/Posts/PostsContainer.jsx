@@ -1,7 +1,7 @@
 import React from 'react';
 import {addProfileActionCreator, updateProfileActionCreator} from "../../../../Redux/profile-reducer";
 import Posts from "./Posts";
-import connect from "react-redux/lib/connect/connect";
+import {connect} from "react-redux";
 
 /*const PostsContainer = (props) => {
 
