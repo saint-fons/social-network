@@ -8,9 +8,9 @@ import Settings from "../Settings/Settings";
 
 const Dialogs = (props) => {
 
-    let DialogData = props.state.DialogElement.map( d  =>
+    let DialogData = props.DialogElement.map( d  =>
         <Dialog name={d.name} id={d.id} age={d.age} />)
-    let MessageData = props.state.MessageElement.map( m =>
+    let MessageData = props.MessageElement.map( m =>
         <Message message={m.message} number={m.number}   />)
 
 

@@ -1,7 +1,28 @@
 import React from 'react';
 import s from "./Settings.module.css";
 import Setting from "./Settings/Setting"
+import {Field, Form, reduxForm} from "redux-form"
+import {maxLengthCreator, required} from "../Utils/Validator/validators";
+import {Textarea} from "../common/FormsControls/FormsControls";
 
+const maxLength10 =  maxLengthCreator(10)
+
+let AddNewSettingForm = (props) => {
+return <Form onSubmit={props.handleSubmit}
+             className={s.settings}>
+    <div>
+        <Field name="newSettingText"
+               component={Textarea} placeholder={"Setting messsage"}
+               validate={[required, maxLength10]}
+        />
+    </div>
+    <div>
+        <button> Add setting </button>
+    </div>
+</Form>
+}
+
+let AddNewSettingFormRedux = reduxForm({form: "SettingAddNewForm"})(AddNewSettingForm)
 
 const Settings = (props) => {
 
@@ -10,9 +31,8 @@ const Settings = (props) => {
 
     let newSettingElement = React.createRef();
 
-    let addSetting = () => {
-        props.addSetting()   //обращение через пропсы
-        //props.dispatch( addSettingActionCreator() )
+    let onAddSetting = (values) => {
+        props.addSetting(values.newSettingText)
     }
 
     let onSettingChange = () => {
@@ -22,21 +42,13 @@ const Settings = (props) => {
         //props.dispatch(action)
     }
 
-    return <div className={s.settings}>
+    return <div>
+        <h3>My settings</h3>
+        <AddNewSettingFormRedux onSubmit={onAddSetting} />
         <div>
-            <textarea onChange={ onSettingChange }
-                      ref={ newSettingElement }
-                      value={ props.addNewSetting }
-            />
+            {SettingData}
         </div>
-        <div>
-            <button onClick={ addSetting }> Add setting </button>
-        </div>
-
-        { SettingData }
-
     </div>
 }
-
 
 export default Settings;

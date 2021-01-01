@@ -1,21 +1,28 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {
-    follow, getUsers, setCurrentPage,
+    follow, requestUsers, setCurrentPage,
     toggleFollowingProgress, unfollow
 } from '../../Redux/users-reducer';
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
 import {compose} from "redux";
 import {WithAuthRedirect} from "../../hoc/WithAuthRedirect";
+import {
+    getCurrentPage,
+    getFollowingInProgress,
+    getIsFetching,
+    getPageSize,
+    getTotalUsersCount, getUsers,
+} from "../../Redux/users-selectors";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        this.props.requestUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.pageSize)
+        this.props.requestUsers(pageNumber, this.props.pageSize)
     }
 
     render() {
@@ -36,7 +43,7 @@ class UsersContainer extends React.Component {
 }
 
 
-let mapStateToProps = (state) => {
+/*let mapStateToProps = (state) => {
     return {
         users: state.UsersPage.users,
         pageSize: state.UsersPage.pageSize,
@@ -44,6 +51,17 @@ let mapStateToProps = (state) => {
         currentPage: state.UsersPage.currentPage,
         isFetching: state.UsersPage.isFetching,
         followingInProgress: state.UsersPage.followingInProgress,
+    }
+}*/
+
+let mapStateToProps = (state) => {
+    return {
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state)
     }
 }
 
@@ -54,5 +72,5 @@ export default compose(
     WithAuthRedirect,
     connect(mapStateToProps, {
     follow, unfollow, setCurrentPage,
-    toggleFollowingProgress, getUsers}))
+    toggleFollowingProgress, getUsers, requestUsers}))
     (UsersContainer)
