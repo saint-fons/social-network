@@ -3,6 +3,7 @@ import user1 from './../../../../assets/imgs/user1.jpg'
 import style from './../../Profile.module.css'
 import Preloader from "../../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus"
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
 const ProfileInfo = (props) => {
@@ -22,7 +23,7 @@ const ProfileInfo = (props) => {
                 <div>{props.profile.contacts.facebook}</div>
                 <div>{props.profile.contacts.instagram}</div>
                 <div>{props.profile.fullName}</div>
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
             </div>
         </div>
     )
